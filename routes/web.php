@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Route::get('/', function () {
+//    return Inertia::render('HelloWorld');
+////    Route::get('/', fn () => inertia('HelloWorld'));
+//});
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
+Route::inertia('/', 'HelloWorld');
+Route::inertia('about', 'About');
+
+
